@@ -1,0 +1,39 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+.game-container {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 180px 180px 180px;
+    grid-template-rows: 180px 180px 180px 180px;
+    perspective: 1000px;
+    grid-template-areas: 
+               "box1 box2 box3"
+               "box4 box5 box6"
+               "box7 box8 box9"
+               "box10 box11 box12";
+}
+.front-face,
+.back-face {
+    position: absolute;
+    border: 1px solid white;
+}
+.back-face {
+    backface-visibility: hidden;
+}
+.card {
+    transform: scale(1);
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform .5s;
+}
+.card:active {
+    transform: scale(0.97);
+    transition: .2s;
+}
+.card.flip {
+    transform: rotateY(180deg);
+}
