@@ -8,6 +8,8 @@ let items = document.querySelectorAll('.card')
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
+let matched = ''
+
 
 function flipCard() {
     if (lockBoard) return;
@@ -33,7 +35,15 @@ function disableCards() {
     firstCard.removeEventListener('click', flipCard);
     secondCard.removeEventListener('click', flipCard);
     resetBoard();
+    console.log (matched += '1')
+    alert('Correct!')
 }
+
+(function win(){
+    if (matched === '111111') {
+        alert('Congrats You won!!!')
+    }
+}) ();
 
 function unflipCards() {
     lockBoard = true;
