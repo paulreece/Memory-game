@@ -10,6 +10,7 @@ let lockBoard = false;
 let firstCard, secondCard;
 let matched = "0";
 let score = document.getElementById("score");
+let clicked = "1";
 
 function flipCard() {
   if (lockBoard) return;
@@ -37,14 +38,10 @@ function disableCards() {
   resetBoard();
   console.log((matched += "+1"));
   score.innerHTML = eval(matched);
-  setTimeout(function () {
-    alert("Correct!");
-  }, 1000);
-}
-
-function win() {
-  if (matched === "111111") {
-    alert("Congrats You won!!!");
+  if (eval(matched) < 6) {
+    setTimeout(function () {
+      alert("Correct!");
+    }, 1000);
   }
 }
 
@@ -69,15 +66,46 @@ function resetBoard() {
   });
 })();
 
+// items.forEach((item) =>
+//   item.addEventListener("click", function () {
+//     if (eval(matched) === 6) {
+//       randomPos = Math.floor(Math.random() * 12);
+//       item.style.order = randomPos;
+//       item.classList.add("flip");
+//       console.log(item.classList);
+//     }
+//   })
+// );
+
 items.forEach((item) => item.addEventListener("click", flipCard));
+
+items.forEach((item) =>
+  item.addEventListener("click", function () {
+    if (clicked === "1") {
+      setInterval(setTime, 1000);
+    }
+  })
+);
+
+items.forEach((item) =>
+  item.addEventListener("click", function () {
+    console.log((clicked += "1"));
+    if (eval(matched) === 6) {
+      setTimeout(function () {
+        alert("Congrats! you win!");
+        totalSeconds = 0;
+        score.innerHTML = "";
+        clicked = "";
+      }, 1000);
+    }
+  })
+);
 
 let minutesLabel = document.getElementById("minute");
 
 let secondsLabel = document.getElementById("second");
 
 let totalSeconds = 0;
-
-setInterval(setTime, 1000);
 
 function setTime() {
   ++totalSeconds;
