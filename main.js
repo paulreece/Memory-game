@@ -11,6 +11,18 @@ let firstCard, secondCard;
 let matched = "0";
 let score = document.getElementById("score");
 let clicked = "1";
+let div1 = document.getElementById("div-1");
+let div2 = document.getElementById("div-2");
+let div3 = document.getElementById("div-3");
+let div4 = document.getElementById("div-4");
+let div5 = document.getElementById("div-5");
+let div6 = document.getElementById("div-6");
+let div7 = document.getElementById("div-7");
+let div8 = document.getElementById("div-8");
+let div9 = document.getElementById("div-9");
+let div10 = document.getElementById("div-10");
+let div11 = document.getElementById("div-11");
+let div12 = document.getElementById("div-12");
 
 function flipCard() {
   if (lockBoard) return;
@@ -96,6 +108,20 @@ items.forEach((item) =>
         totalSeconds = 0;
         score.innerHTML = "";
         clicked = "";
+        div1.classList.remove("flip");
+        div2.classList.remove("flip");
+        div3.classList.remove("flip");
+        div4.classList.remove("flip");
+        div5.classList.remove("flip");
+        div6.classList.remove("flip");
+        div7.classList.remove("flip");
+        div8.classList.remove("flip");
+        div9.classList.remove("flip");
+        div10.classList.remove("flip");
+        div11.classList.remove("flip");
+        div12.classList.remove("flip");
+        matched = "0";
+        resetBoard();
       }, 1000);
     }
   })
